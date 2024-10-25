@@ -8,7 +8,7 @@ export class SocketService {
   private readonly socket: Socket;
 
   constructor() {
-    this.socket = io('http://localhost:3000'); // Substitua pela URL do seu servidor
+    this.socket = io('https://planning-poker-backend-el5z.onrender.com'); // Substitua pela URL do seu servidor
   }
 
   // Emitir um evento
