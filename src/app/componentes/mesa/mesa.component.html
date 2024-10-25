@@ -1,7 +1,7 @@
 <div class="mesa">
   <div class="posicionar-elementos-da-mesa">
-    <button type="button" class="botao-da-mesa">
-      <span class="texto-do-botao">REVELAR CARTAS</span>
+    <button type="button" class="botao-da-mesa" (click)="revelarCarta()">
+      <span class="texto-do-botao">{{ jogoIniciado ? 'REVELAR CARTAS' : 'NOVO JOGO' }}</span>
     </button>
   </div>
 </div>

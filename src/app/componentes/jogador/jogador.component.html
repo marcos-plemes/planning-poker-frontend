@@ -1,4 +1,8 @@
 <div class="jogador">
-  <div class="carta-do-jogador"></div>
-  <div class="nome-do-jogador">JOGADOR</div>
+  <div class="carta-do-jogador" [ngClass]="{
+  'carta-do-jogador-selecionada': jogador?.isCartaSelecionada && !jogador?.tituloDaCarta,
+  'carta-do-jogador-revelada': jogador?.tituloDaCarta}">
+    {{ jogador?.tituloDaCarta }}
+  </div>
+  <div class="nome-do-jogador">{{ jogador?.nome }}</div>
 </div>

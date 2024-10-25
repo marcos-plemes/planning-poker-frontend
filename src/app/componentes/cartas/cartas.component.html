@@ -5,7 +5,11 @@
 <div class="cartas">
   <ul class="cartas">
     <li class="carta" *ngFor="let carta of cartas">
-      <button class="carta" [ngClass]="{ 'carta-selecionada': carta.selecionada }">{{ carta.titulo }}</button>
+      <button class="carta"
+              [ngClass]="{ 'carta-selecionada': carta.selecionada }"
+              (click)="selecionarCarta(carta)"
+      >{{ carta.titulo }}
+      </button>
     </li>
   </ul>
 </div>

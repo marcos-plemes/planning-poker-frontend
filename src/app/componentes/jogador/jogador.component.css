@@ -10,16 +10,36 @@
 }
 
 .carta-do-jogador {
+  background-color: #e8e9ea;
+}
+
+.carta-do-jogador-selecionada {
+  background: linear-gradient(45deg, #3993ff 12%, transparent 0, transparent 88%, #3993ff 0), linear-gradient(135deg, transparent 37%, #1a7bf2 0, #1a7bf2 63%, transparent 0), linear-gradient(45deg, transparent 37%, #3993ff 0, #3993ff 63%, transparent 0), #74b3ff;
+}
+
+.carta-do-jogador, carta-do-jogador-selecionada {
   border-radius: .8rem;
   height: 5.6rem;
   width: 3.2rem;
   flex-shrink: 0;
   align-items: center;
   backface-visibility: hidden;
-  background: linear-gradient(45deg, #3993ff 12%, transparent 0, transparent 88%, #3993ff 0), linear-gradient(135deg, transparent 37%, #1a7bf2 0, #1a7bf2 63%, transparent 0), linear-gradient(45deg, transparent 37%, #3993ff 0, #3993ff 63%, transparent 0), #74b3ff;
   background-size: 17px 17px;
   border: 1px solid hsla(204, 6%, 68%, .4);
   display: flex;
+}
+
+.carta-do-jogador-revelada {
+  background-color: #fff;
+  border-radius: .8rem;
+  border: 2px solid #3993ff;
+  color: #3993ff;
+  display: flex;
+  font-size: 18px;
+  font-weight: 700;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .nome-do-jogador {

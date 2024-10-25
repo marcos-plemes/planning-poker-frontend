@@ -11,31 +11,33 @@
     <div class="table-module">
       <div></div>
       <div class="table-module-top">
-        <app-jogador></app-jogador>
-        <app-jogador></app-jogador>
-        <app-jogador></app-jogador>
+        <app-jogador *ngFor="let jogador of jogadores.slice(0, 3)"
+                     [jogador]="jogador">
+        </app-jogador>
       </div>
       <div></div>
 
       <div class="table-module-left">
-        <app-jogador></app-jogador>
-        <app-jogador></app-jogador>
+        <app-jogador *ngFor="let jogador of jogadores.slice(6, 8)"
+                     [jogador]="jogador">
+        </app-jogador>
       </div>
 
       <div class="table-module-center">
-        <app-mesa></app-mesa>
+        <app-mesa [socket]="SocketService"></app-mesa>
       </div>
 
       <div class="table-module-right">
-        <app-jogador></app-jogador>
-        <app-jogador></app-jogador>
+        <app-jogador *ngFor="let jogador of jogadores.slice(8, 10)"
+                     [jogador]="jogador">
+        </app-jogador>
       </div>
 
       <div></div>
       <div class="table-module-bottom">
-        <app-jogador></app-jogador>
-        <app-jogador></app-jogador>
-        <app-jogador></app-jogador>
+        <app-jogador *ngFor="let jogador of jogadores.slice(3, 6)"
+                     [jogador]="jogador">
+        </app-jogador>
       </div>
       <div></div>
 
@@ -44,7 +46,7 @@
   </div>
 
   <div>
-    <app-cartas></app-cartas>
+    <app-cartas [socket]="SocketService"></app-cartas>
   </div>
 </div>
 
