@@ -1,0 +1,107 @@
+.mesa {
+  border-radius: 2.8rem;
+  grid-area: table;
+  height: auto;
+  margin: 0 auto;
+  min-height: 12.08rem;
+  min-width: 27.04rem;
+  padding: 0 1.6rem;
+  position: relative;
+  background-color: #d7e9ff;
+}
+
+.mesa:before {
+  animation: mesa-glowing 20s linear infinite;
+  background: linear-gradient(45deg, #ebf4ff, #d7e9ff, #74b3ff, #3993ff, #0061d6, #3993ff, #74b3ff, #d7e9ff, #ebf4ff);
+  background-size: 400%;
+  border-radius: 2.8rem;
+  content: "";
+  filter: blur(5px);
+  height: calc(100% + 4px);
+  left: -2px;
+  opacity: 1;
+  position: absolute;
+  top: -2px;
+  transition: opacity .3s ease-in-out;
+  width: calc(100% + 4px);
+  z-index: -2;
+}
+
+.mesa:after {
+  background: #d7e9ff;
+  border-radius: 2.8rem;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+@keyframes mesa-glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  to {
+    background-position: 0 0;
+  }
+}
+
+.posicionar-elementos-da-mesa {
+  align-items: center;
+  border-radius: 16px;
+  bottom: 2.4rem;
+  display: flex;
+  justify-content: center;
+  left: 2.4rem;
+  position: absolute;
+  right: 2.4rem;
+  top: 2.4rem;
+}
+
+.botao-da-mesa {
+  align-items: center;
+  border: 0;
+  border-radius: .8rem;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 1.44rem;
+  font-weight: 700;
+  height: 4.48rem;
+  letter-spacing: .02em;
+  outline: 0;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all .09s linear;
+  color: #fff;
+  background-color: #3993ff;
+}
+
+.botao-da-mesa:focus {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #d7e9ff;
+}
+
+.botao-da-mesa:hover {
+  text-decoration: none;
+  background-color: #74b3ff;
+}
+
+.botao-da-mesa:active {
+  background-color: #0061d6;
+}
+
+.texto-do-botao {
+  padding: 0 2.4rem;
+  align-items: center;
+  display: flex;
+  margin: 0 auto;
+  color: #fff;
+}

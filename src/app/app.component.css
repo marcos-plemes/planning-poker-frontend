@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+  outline-color: #74b3ff;
+}
+
+.room-module {
+  margin: auto;
+  padding: 0 2.4rem;
+}
+
+.header {
+  height: 4.8rem;
+  align-content: center;
+  align-items: center;
+}
+
+.header-texto {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-texto-modulo {
+  padding: 0 .8rem;
+  font-size: 2.25rem;
+  color: #1a2935;
+  font-weight: 700;
+  height: 3.6rem;
+  line-height: 1.4em;
+  max-width: 100%;
+}
+
+.header-texto-jogador {
+  padding: 0 .8rem;
+  font-size: 1.25rem;
+  color: #1a2935;
+}
+
+.table {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  padding-bottom: 0;
+  width: 100%;
+  unicode-bidi: isolate;
+}
+
+.table-module {
+  grid-template-rows: 8rem 1fr 13.4rem;
+  grid-template-columns: 10.4rem 1fr 10.4rem;
+  grid-template-areas:"left top right" "left table right" "left bottom right";
+  grid-gap: .8rem;
+  margin: 0 auto;
+  min-height: 200px;
+  width: auto;
+  display: inline-grid;
+}
+
+.table-module-top {
+  align-items: stretch;
+  grid-area: top;
+  padding-bottom: .8rem;
+  display: flex;
+  justify-content: center;
+  unicode-bidi: isolate;
+}
+
+.table-module-left {
+  grid-area: left;
+  flex-direction: column-reverse;
+  padding: 8rem 0;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.table-module-right {
+  grid-area: right;
+  flex-direction: column-reverse;
+  padding: 8rem 0;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.table-module-bottom {
+  align-items: stretch;
+  grid-area: bottom;
+  padding: 1.2rem 0 .4rem;
+  display: flex;
+  justify-content: center;
+  unicode-bidi: isolate;
+}
+
+.table-module-center {
+  grid-area: table;
+  z-index: 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
