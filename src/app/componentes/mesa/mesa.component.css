@@ -59,6 +59,7 @@
   bottom: 2.4rem;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   left: 2.4rem;
   position: absolute;
   right: 2.4rem;

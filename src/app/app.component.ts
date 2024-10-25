@@ -62,6 +62,7 @@ export class AppComponent implements OnInit, OnDestroy {
       console.log(this.jogadores);
     });
     this.SocketService.on("jogoIniciado", (jogoIniciado: boolean) => {
+      console.log(jogoIniciado);
       this.jogoIniciado = jogoIniciado;
     });
     this.SocketService.on("jogadorConectado", (jogadorConectado: Jogador) => {
