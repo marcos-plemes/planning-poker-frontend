@@ -20,6 +20,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   jogadores: Jogador[] = [];
 
+  nomeDoJogador: string = '';
+
   constructor(
     public readonly SocketService: SocketService,
     private dialog: MatDialog) {
@@ -32,6 +34,7 @@ export class AppComponent implements OnInit, OnDestroy {
         width: '350px',
         disableClose: true
       }).afterClosed().subscribe(result => {
+        this.nomeDoJogador = result;
         this.SocketService.emit('nomeDoJogador', result);
       });
     });
