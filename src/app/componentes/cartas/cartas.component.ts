@@ -16,16 +16,7 @@ import { SocketService } from '../../socket.service';
 export class CartasComponent {
   @Input() socket: SocketService | undefined;
 
-  cartas: Carta[] = [
-    { titulo: '2h', selecionada: false },
-    { titulo: '4h', selecionada: false },
-    { titulo: '1d', selecionada: false },
-    { titulo: '2d', selecionada: false },
-    { titulo: '3d', selecionada: false },
-    { titulo: '4d', selecionada: false },
-    { titulo: '1s', selecionada: false },
-    { titulo: '+1s', selecionada: false }
-  ];
+  @Input() cartas: Carta[] = [];
 
   constructor() {
   }

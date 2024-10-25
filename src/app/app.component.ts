@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogDeNomeComponent } from './componentes/dialog-de-nome/dialog-de-nome.component';
 import Jogador from './jogador';
 import { NgForOf } from '@angular/common';
+import { Carta } from './componentes/cartas/carta.interface';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +26,17 @@ export class AppComponent implements OnInit, OnDestroy {
   jogoIniciado = true;
 
   resultadoAnterior: string = '';
+
+  cartas: Carta[] = [
+    { titulo: '2h', selecionada: false },
+    { titulo: '4h', selecionada: false },
+    { titulo: '1d', selecionada: false },
+    { titulo: '2d', selecionada: false },
+    { titulo: '3d', selecionada: false },
+    { titulo: '4d', selecionada: false },
+    { titulo: '1s', selecionada: false },
+    { titulo: '+1s', selecionada: false }
+  ];
 
   constructor(
     public readonly SocketService: SocketService,
@@ -71,6 +83,9 @@ export class AppComponent implements OnInit, OnDestroy {
     });
     this.SocketService.on("reiniciar-jogo", () => {
       this.jogoIniciado = true;
+      this.cartas.forEach(carta => {
+        carta.selecionada = false;
+      });
       this.jogadores.forEach(jogador => {
         jogador.isCartaSelecionada = false;
         jogador.tituloDaCarta = '';
