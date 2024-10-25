@@ -75,7 +75,9 @@ export class AppComponent implements OnInit, OnDestroy {
       this.resultadoAnterior = '';
       this.jogadores.forEach(jogador => {
         const index = jogadoresComCartas.findIndex(jogadorComCartas => jogadorComCartas.id === jogador.id);
-        jogador.tituloDaCarta = jogadoresComCartas[index].tituloDaCarta;
+        if (index !== -1) {
+          jogador.tituloDaCarta = jogadoresComCartas[index].tituloDaCarta;
+        }
         this.jogoIniciado = false;
         this.resultadoAnterior = this.resultadoAnterior + jogador.nome + ': ' + jogador.tituloDaCarta + '\n';
       });
