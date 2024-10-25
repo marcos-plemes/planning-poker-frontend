@@ -22,6 +22,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   nomeDoJogador: string = '';
 
+  jogoIniciado = true;
+
   constructor(
     public readonly SocketService: SocketService,
     private dialog: MatDialog) {
@@ -59,9 +61,11 @@ export class AppComponent implements OnInit, OnDestroy {
       this.jogadores.forEach(jogador => {
         const index = jogadoresComCartas.findIndex(jogadorComCartas => jogadorComCartas.id === jogador.id);
         jogador.tituloDaCarta = jogadoresComCartas[index].tituloDaCarta;
+        this.jogoIniciado = false;
       });
     });
     this.SocketService.on("reiniciar-jogo", () => {
+      this.jogoIniciado = true;
       this.jogadores.forEach(jogador => {
         jogador.isCartaSelecionada = false;
         jogador.tituloDaCarta = '';

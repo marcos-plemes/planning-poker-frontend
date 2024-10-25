@@ -11,7 +11,7 @@ import { SocketService } from '../../socket.service';
 export class MesaComponent {
   @Input() socket: SocketService | undefined;
 
-  jogoIniciado = true;
+  @Input() jogoIniciado = true;
 
   revelarCarta() {
     if (this.socket && this.jogoIniciado) {
