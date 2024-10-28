@@ -116,4 +116,15 @@
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
   0 8px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.tarefa-container {
+  width: 100%; /* Defina a largura desejada */
+  white-space: nowrap; /* Impede a quebra de linha */
+  overflow: hidden; /* Esconde o excesso de conteúdo */
+  text-overflow: ellipsis;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }

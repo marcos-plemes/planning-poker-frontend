@@ -1,6 +1,11 @@
 <div class="card-lista-de-tarefas">
   <div class="card-lista-de-tarefas-estilo">
     LISTA DE TAREFAS
+    <span class="tarefa-container" *ngFor="let tarefa of tarefas">
+      <a [href]="irParaORedmine(tarefa.id)"
+         target="_blank"
+      >{{ '#' + tarefa.id + ' - ' + tarefa.subject }}</a>
+    </span>
   </div>
 </div>
 

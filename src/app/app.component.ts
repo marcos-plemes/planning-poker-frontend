@@ -10,6 +10,7 @@ import Jogador from './jogador';
 import { NgForOf } from '@angular/common';
 import { Carta } from './componentes/cartas/carta.interface';
 import { RedmineService } from './componentes/redmine/redmine.service';
+import { Tarefa } from './componentes/redmine/Tarefa';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,8 @@ import { RedmineService } from './componentes/redmine/redmine.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit, OnDestroy {
+
+  tarefas: Tarefa[] = [];
 
   jogadores: Jogador[] = [];
 
@@ -102,7 +105,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.redmineService.listaDeTarefasEmValidacao().subscribe(
       response => {
-        console.log(response);
+        this.tarefas = response;
+        console.log(this.tarefas);
       }
     );
 
@@ -110,6 +114,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.SocketService.disconnect();
+  }
+
+  irParaORedmine(id: number) {
+    return `https://redmine.cloudmega.com.br/issues/${id}`;
   }
 
 }
