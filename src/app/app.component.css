@@ -125,6 +125,6 @@
   white-space: nowrap; /* Impede a quebra de linha */
   overflow: hidden; /* Esconde o excesso de conteúdo */
   text-overflow: ellipsis;
-  margin-top: 2px;
-  margin-bottom: 2px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
