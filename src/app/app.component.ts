@@ -9,6 +9,7 @@ import { DialogDeNomeComponent } from './componentes/dialog-de-nome/dialog-de-no
 import Jogador from './jogador';
 import { NgForOf } from '@angular/common';
 import { Carta } from './componentes/cartas/carta.interface';
+import { RedmineService } from './componentes/redmine/redmine.service';
 
 @Component({
   selector: 'app-root',
@@ -40,6 +41,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(
     public readonly SocketService: SocketService,
+    public readonly redmineService: RedmineService,
     private dialog: MatDialog) {
   }
 
@@ -97,6 +99,12 @@ export class AppComponent implements OnInit, OnDestroy {
         jogador.tituloDaCarta = '';
       });
     });
+
+    this.redmineService.listaDeTarefasEmValidacao().subscribe(
+      response => {
+        console.log(response);
+      }
+    );
 
   }
 
