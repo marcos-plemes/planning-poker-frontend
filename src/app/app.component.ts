@@ -94,6 +94,7 @@ export class AppComponent implements OnInit, OnDestroy {
     });
     this.SocketService.on("reiniciar-jogo", () => {
       this.jogoIniciado = true;
+      this.listaDeTarefasEmValidacao();
       this.cartas.forEach(carta => {
         carta.selecionada = false;
       });
@@ -103,13 +104,17 @@ export class AppComponent implements OnInit, OnDestroy {
       });
     });
 
+    this.listaDeTarefasEmValidacao();
+
+  }
+
+  listaDeTarefasEmValidacao() {
     this.redmineService.listaDeTarefasEmValidacao().subscribe(
       response => {
         this.tarefas = response;
         console.log(this.tarefas);
       }
     );
-
   }
 
   ngOnDestroy() {
