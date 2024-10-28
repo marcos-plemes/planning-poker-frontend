@@ -100,11 +100,11 @@ export class AppComponent implements OnInit, OnDestroy {
       });
     });
 
-    // this.redmineService.listaDeTarefasEmValidacao().subscribe(
-    //   response => {
-    //     console.log(response);
-    //   }
-    // );
+    this.redmineService.listaDeTarefasEmValidacao().subscribe(
+      response => {
+        console.log(response);
+      }
+    );
 
   }
 

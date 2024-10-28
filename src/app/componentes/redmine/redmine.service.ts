@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Tarefa } from './Tarefa';
 
@@ -8,19 +8,13 @@ import { Tarefa } from './Tarefa';
 })
 export class RedmineService {
 
-  private baseUrl = 'https://redmine.cloudmega.com.br/issues.json';
+  private baseUrl = 'https://planning-poker-backend-el5z.onrender.com';
 
   constructor(private readonly http: HttpClient) {
   }
 
   listaDeTarefasEmValidacao(): Observable<Tarefa[]> {
-    const params = new HttpParams()
-      .set('cf_4', 'Recursos Humanos')
-      .set('status_id', '54');
-
-    const headers = new HttpHeaders({});
-
-    return this.http.get<Tarefa[]>(this.baseUrl, { params, headers });
+    return this.http.get<Tarefa[]>(`${this.baseUrl}/tarefas-para-validacao`);
   }
 
 }
