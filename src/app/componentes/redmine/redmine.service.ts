@@ -8,8 +8,9 @@ import { Tarefa } from './Tarefa';
 })
 export class RedmineService {
 
-  // private baseUrl = 'https://planning-poker-backend-el5z.onrender.com';
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://planning-poker-backend-el5z.onrender.com';
+
+  // private baseUrl = 'http://localhost:3000';
 
   constructor(private readonly http: HttpClient) {
   }
