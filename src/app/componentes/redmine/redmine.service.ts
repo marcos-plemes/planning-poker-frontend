@@ -18,9 +18,7 @@ export class RedmineService {
       .set('cf_4', 'Recursos Humanos')
       .set('status_id', '54');
 
-    const headers = new HttpHeaders({
-      'Authorization': 'Basic ' + btoa(`marcoslemes:Fr12ju90.#`)
-    });
+    const headers = new HttpHeaders({});
 
     return this.http.get<Tarefa[]>(this.baseUrl, { params, headers });
   }
