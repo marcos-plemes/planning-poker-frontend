@@ -89,6 +89,7 @@ export class AppComponent implements OnInit, OnDestroy {
         }
         this.jogoIniciado = false;
         this.resultadoAnterior = this.resultadoAnterior + jogador.nome + ': ' + jogador.tituloDaCarta + '\n';
+        this.ordenarResultado();
       });
       navigator.clipboard.writeText(this.resultadoAnterior).then();
     });
@@ -106,6 +107,24 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.listaDeTarefasEmValidacao();
 
+  }
+
+  ordenarResultado() {
+    // Passo 1: Divida a string em um array de linhas
+    let linhas = this.resultadoAnterior.split('\n');
+
+    // Passo 2: Ordene as linhas alfabeticamente
+    linhas = linhas.sort();
+
+    // Passo 3: Junte as linhas ordenadas de volta em uma única string
+    this.resultadoAnterior = linhas.join('\n');
+
+    // Se você quiser garantir que a última linha não tenha uma quebra de linha extra no final
+    if (this.resultadoAnterior.endsWith('\n')) {
+       this.resultadoAnterior = this.resultadoAnterior.slice(0, -1);
+    }
+
+    console.log(this.resultadoAnterior);
   }
 
   listaDeTarefasEmValidacao() {
