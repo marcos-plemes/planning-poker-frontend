@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { CartasComponent } from './componentes/cartas/cartas.component';
 import { JogadorComponent } from './componentes/jogador/jogador.component';
 import { MesaComponent } from './componentes/mesa/mesa.component';
@@ -15,7 +14,7 @@ import { Tarefa } from './componentes/redmine/Tarefa';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CartasComponent, JogadorComponent, MesaComponent, NgForOf],
+  imports: [CartasComponent, JogadorComponent, MesaComponent, NgForOf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -29,7 +28,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   jogoIniciado = true;
 
-  resultadoAnterior: string = '';
+  resultadoAnterior: string[] = [];
 
   cartas: Carta[] = [
     { titulo: '2h', selecionada: false },
@@ -81,17 +80,17 @@ export class AppComponent implements OnInit, OnDestroy {
       this.jogadores[index].isCartaSelecionada = jogadorEscolheuUmaCarta.isCartaSelecionada;
     });
     this.SocketService.on("cartas-escolhidas", (jogadoresComCartas: Jogador[]) => {
-      this.resultadoAnterior = '';
+      this.resultadoAnterior = [];
       this.jogadores.forEach(jogador => {
         const index = jogadoresComCartas.findIndex(jogadorComCartas => jogadorComCartas.id === jogador.id);
         if (index !== -1) {
           jogador.tituloDaCarta = jogadoresComCartas[index].tituloDaCarta;
         }
         this.jogoIniciado = false;
-        this.resultadoAnterior = this.resultadoAnterior + jogador.nome + ': ' + jogador.tituloDaCarta + '\n';
-        this.ordenarResultado();
+        this.resultadoAnterior.push(jogador.nome + ': ' + jogador.tituloDaCarta);
       });
-      navigator.clipboard.writeText(this.resultadoAnterior).then();
+      this.resultadoAnterior.sort((a, b) => a.localeCompare(b));
+      navigator.clipboard.writeText(this.resultadoAnterior.join('\n')).then();
     });
     this.SocketService.on("reiniciar-jogo", () => {
       this.jogoIniciado = true;
@@ -109,29 +108,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   }
 
-  ordenarResultado() {
-    // Passo 1: Divida a string em um array de linhas
-    let linhas = this.resultadoAnterior.split('\n');
-
-    // Passo 2: Ordene as linhas alfabeticamente
-    linhas = linhas.sort();
-
-    // Passo 3: Junte as linhas ordenadas de volta em uma única string
-    this.resultadoAnterior = linhas.join('\n');
-
-    // Se você quiser garantir que a última linha não tenha uma quebra de linha extra no final
-    if (this.resultadoAnterior.endsWith('\n')) {
-       this.resultadoAnterior = this.resultadoAnterior.slice(0, -1);
-    }
-
-    console.log(this.resultadoAnterior);
-  }
-
   listaDeTarefasEmValidacao() {
     this.redmineService.listaDeTarefasEmValidacao().subscribe(
       response => {
         this.tarefas = response;
-        console.log(this.tarefas);
       }
     );
   }
