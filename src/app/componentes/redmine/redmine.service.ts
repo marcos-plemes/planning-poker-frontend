@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Tarefa } from './Tarefa';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +14,13 @@ export class RedmineService {
   constructor(private readonly http: HttpClient) {
   }
 
-  listaDeTarefasEmValidacao(): Observable<Tarefa[]> {
-    return this.http.get<Tarefa[]>(`${this.baseUrl}/tarefas-para-validacao`);
+  buscarNomeDoUsuario(usuario: string, senha: string): Observable<string> {
+    const encodedCredentials = btoa(`${usuario}:${senha}`);
+    return this.http.get<string>(`${this.baseUrl}/buscar-nome-do-usuario`, {
+      headers: {
+        Authorization: `Basic ${encodedCredentials}`
+      }
+    });
   }
 
 }

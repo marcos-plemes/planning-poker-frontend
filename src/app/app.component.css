@@ -101,17 +101,22 @@
   display: flex;
 }
 
-.card-lista-de-tarefas {
+.card-carregando {
+  z-index: 100;
   position: absolute;
   display: flex;
   align-items: center;
-  width: 25%;
+  justify-content: center;
+  width: 100%;
   height: 100%;
 }
 
-.card-lista-de-tarefas-estilo {
-  width: 100%;
-  height: 70%;
+.card-carregando-item {
+  width: 250px;
+  height: 200px;
+  background: white;
+  align-items: center;
+  justify-content: center;
   border: 2px solid #3993ff;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),

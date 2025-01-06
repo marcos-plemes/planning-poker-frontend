@@ -1,11 +1,19 @@
-<h1 mat-dialog-title>Olá! Digite seu nome</h1>
+<h1 mat-dialog-title>Olá! Digite seu Usuário e Senha</h1>
 <div mat-dialog-content>
   <mat-form-field class="full-width">
+    <mat-label>Usuário</mat-label>
     <input matInput
-           [(ngModel)]="nomeDoJogador"
-           placeholder="Nome">
+           [(ngModel)]="usuario"
+           placeholder="Usuário">
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <mat-label>Senha</mat-label>
+    <input matInput
+           [(ngModel)]="senha"
+           type="password"
+           placeholder="Senha">
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onClose()" [disabled]="nomeDoJogador.length < 4">Fechar</button>
+  <button mat-button (click)="onClose()" [disabled]="usuario.length < 3 || senha.length < 6">Login</button>
 </div>
